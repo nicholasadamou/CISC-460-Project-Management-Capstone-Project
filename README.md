@@ -1,7 +1,5 @@
 # Northweast Contract Database System's Project
 
-![SelectAForm](SCREENSHOTS/SelectAForm/SelectAForm.png)
-
 ![license](https://img.shields.io/apm/l/vim-mode.svg)
 [![Say Thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/NicholasAdamou)
 
