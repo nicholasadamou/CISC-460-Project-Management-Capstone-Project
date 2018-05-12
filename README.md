@@ -1,4 +1,4 @@
-# Northweast Contract Database System's Project
+# CISC-460-Project-Management-Capstone-System-Project
 
 ![license](https://img.shields.io/apm/l/vim-mode.svg)
 [![Say Thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/NicholasAdamou)
