@@ -45,7 +45,7 @@ Initial Project Plan Stages
 License
 -------
 
-Northweast Contract Database System's Project is © 2018 Nicholas Adamou, Nicholas Wiedman, Farheen Fatima, Jared Loucks.
+CISC-460-Project-Management-Capstone-Project is © 2018 Nicholas Adamou, Nicholas Wiedman, Farheen Fatima, Jared Loucks.
 
 It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
 
