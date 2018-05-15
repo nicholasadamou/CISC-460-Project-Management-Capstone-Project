@@ -1,9 +1,8 @@
-﻿/*Nicholas Weidman, Jared Loucks, Farheen Fatima, Nicholas Adamou
- *5/9/18
+﻿/*Nicholas Weidman
+ *11/15/16
  *
  *A form to display the details of a user selected contract.
  *Selecting a contract from this form will allow the user to begin manufacturing it
- *Users are also able to submit updates to the contract
  * */
 
 using System;
@@ -33,67 +32,13 @@ namespace WindowsFormsApplication2
         private String selectedStartLocation;
         private String selectedCurrentLocation;
         private String selectedProcesses;
-        private String selectedBusy;
 
         private string dbPath = "C:\\Users\\Student\\Documents\\Systems Project.mdf"; //Path to the database
 
-        //Constructor used to load from the Archived table
-        public ContractInfo(String contractNumber, int num)
-        {
-            InitializeComponent();
 
-            selectedContractNumber = contractNumber;
-
-            source = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + dbPath + ";Integrated Security=True;Connect Timeout=30";
-            conn = new SqlConnection(source);
-
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "spLoadDelinquentDetails";
-            SqlDataReader reader;
-            cmd.Parameters.AddWithValue("@ContractNumber", selectedContractNumber).Direction = ParameterDirection.Input;
-
-            cmd.Parameters.Add("@DueDate", SqlDbType.Date).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@EntryDate", SqlDbType.Date).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@ExpectedCompletionDate", SqlDbType.Date).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@CurrentLocation", SqlDbType.VarChar, 3).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@StartLocation", SqlDbType.VarChar, 3).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@NecessaryProcesses", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-
-            {
-                conn.Open();
-                reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    //Load all of the details into the form
-                    reader.Read();
-
-                    selectedDueDate = (System.DateTime)reader.GetValue(0);
-                    selectedEntryDate = (System.DateTime)reader.GetValue(1);
-                    selectedExpectedCompletionDate = (System.DateTime)reader.GetValue(2);
-                    selectedCurrentLocation = (String)reader.GetValue(3);
-                    selectedStartLocation = (String)reader.GetValue(4);
-                    selectedProcesses = (String)reader.GetValue(5);
-
-                    conn.Close();
-                    cmd.Parameters.Clear();
-                    reader.Close();
-                    this.Show();
-
-                }
-                else
-                {
-                    MessageBox.Show("Contract Not Found");
-                    conn.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-        }
-
-        //Constructor used to load from the Contract table
         public ContractInfo(String contractNumber)
         {
+
             InitializeComponent();
 
             selectedContractNumber = contractNumber;
@@ -113,15 +58,13 @@ namespace WindowsFormsApplication2
             cmd.Parameters.Add("@CurrentLocation", SqlDbType.VarChar, 3).Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@StartLocation", SqlDbType.VarChar, 3).Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@NecessaryProcesses", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@Selected", SqlDbType.VarChar, 1).Direction = ParameterDirection.Output;
 
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
 
-                if (reader.HasRows) 
+                if (reader.HasRows) //<-----
                 {
-                    //Load all of the details into the form
                     reader.Read();
                     
                     selectedDueDate = (System.DateTime)reader.GetValue(0);
@@ -130,7 +73,6 @@ namespace WindowsFormsApplication2
                     selectedCurrentLocation = (String)reader.GetValue(3);
                     selectedStartLocation = (String)reader.GetValue(4);
                     selectedProcesses = (String)reader.GetValue(5);
-                    selectedBusy = (String)reader.GetValue(6);
 
                     conn.Close();
                     cmd.Parameters.Clear();
@@ -141,8 +83,6 @@ namespace WindowsFormsApplication2
                 else
                 {
                     MessageBox.Show("Contract Not Found");
-                    AvailableContracts newAvailableContracts = new AvailableContracts();
-                    newAvailableContracts.Show();
                     conn.Close();
                     cmd.Parameters.Clear();
                 }
@@ -164,12 +104,6 @@ namespace WindowsFormsApplication2
             startLocation_textbx.Text = selectedStartLocation;
             currentLocationMsked.Text = selectedCurrentLocation;
             processes_rchtxtbx.Text = selectedProcesses;
-
-            if(selectedBusy.Equals("1"))
-            {
-                select_btn.Enabled = false;
-            }
-
         }
 
         //Displays a help message box for the user
@@ -185,25 +119,20 @@ namespace WindowsFormsApplication2
             MessageBox.Show("The contract has been selected for manufacturing");
         }
 
-        //Close this form and return the user to the Available Contracts form
         private void exit_btn_Click_1(object sender, EventArgs e)
         {
-            AvailableContracts newAvailableContracts = new AvailableContracts();
-            newAvailableContracts.Show();
             this.Close();
         }
 
-        //Toggle the enabled property of fields to allow for updating
+        //UPDATE
         private void update_btn_Click_1(object sender, EventArgs e)
         {
-            toggleEnabled();
-            update_btn.Enabled = false;
+            dueDate_dtetimepckr.Enabled = expComplDate_dtetimepckr.Enabled = currentLocationMsked.Enabled = submit_btn.Enabled = update_btn.Enabled;
         }
 
-        //Submit the updates to the database
         private void submit_btn_Click_1(object sender, EventArgs e)
         {
-            toggleEnabled();
+            dueDate_dtetimepckr.Enabled = expComplDate_dtetimepckr.Enabled = currentLocationMsked.Enabled = submit_btn.Enabled = !update_btn.Enabled;
 
             SqlCommand updatecmd = new SqlCommand();
             updatecmd.Connection = conn;
@@ -221,10 +150,9 @@ namespace WindowsFormsApplication2
             {
                 conn.Open();
                 updatecmd.ExecuteNonQuery();
-                if (updatecmd.Parameters.Count > 0)
+                if (updatecmd.UpdatedRowSource > 0)
                 {
                     MessageBox.Show("Successful");
-                    update_btn.Enabled = true;
                 }
                 else
                 {
@@ -239,53 +167,13 @@ namespace WindowsFormsApplication2
             {
                 conn.Close();
                 updatecmd.Parameters.Clear();
-                select_btn.Enabled = true;
             }
         }
 
-        //select contract for manufacturing
-        //A selected contract will not be able to be selected again until it is updated
+        //select contract
         private void select_btn_Click_1(object sender, EventArgs e)
         {
-            SqlCommand updatecmd = new SqlCommand();
-            updatecmd.Connection = conn;
-            updatecmd.CommandType = CommandType.StoredProcedure;
-            updatecmd.CommandText = "spUpdateSelected";
 
-            updatecmd.Parameters.AddWithValue("ContractNumber", this.selectedContractNumber).Direction = ParameterDirection.Input;
-
-            updatecmd.Parameters.Add("@RowCount", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-
-            try
-            {
-                conn.Open();
-                updatecmd.ExecuteNonQuery();
-                if (updatecmd.Parameters.Count > 0)
-                {
-                    MessageBox.Show("Successful");
-                }
-                else
-                {
-                    MessageBox.Show("Unsuccessful");
-                }
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                conn.Close();
-                updatecmd.Parameters.Clear();
-            }
-
-            select_btn.Enabled = false;
-        }
-
-        //Toggle the enabled property of the buttons
-        private void toggleEnabled()
-        {
-            dueDate_dtetimepckr.Enabled = expComplDate_dtetimepckr.Enabled = currentLocationMsked.Enabled = submit_btn.Enabled = !dueDate_dtetimepckr.Enabled;
         }
     }
 }

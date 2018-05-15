@@ -32,9 +32,9 @@
             this.description_rchtxtbx = new System.Windows.Forms.RichTextBox();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.lbl_ProcessDefinitions = new System.Windows.Forms.Label();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_ProcessDefinitions = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,16 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // lbl_ProcessDefinitions
+            // 
+            this.lbl_ProcessDefinitions.AutoSize = true;
+            this.lbl_ProcessDefinitions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ProcessDefinitions.Location = new System.Drawing.Point(120, 41);
+            this.lbl_ProcessDefinitions.Name = "lbl_ProcessDefinitions";
+            this.lbl_ProcessDefinitions.Size = new System.Drawing.Size(197, 25);
+            this.lbl_ProcessDefinitions.TabIndex = 4;
+            this.lbl_ProcessDefinitions.Text = "Process Definitions";
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -87,26 +97,15 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
-            // lbl_ProcessDefinitions
-            // 
-            this.lbl_ProcessDefinitions.AutoSize = true;
-            this.lbl_ProcessDefinitions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ProcessDefinitions.Location = new System.Drawing.Point(120, 41);
-            this.lbl_ProcessDefinitions.Name = "lbl_ProcessDefinitions";
-            this.lbl_ProcessDefinitions.Size = new System.Drawing.Size(197, 25);
-            this.lbl_ProcessDefinitions.TabIndex = 4;
-            this.lbl_ProcessDefinitions.Text = "Process Definitions";
             // 
             // ProcessDefinitions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 531);
-            this.ControlBox = false;
             this.Controls.Add(this.lbl_ProcessDefinitions);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.description_rchtxtbx);
@@ -114,7 +113,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ProcessDefinitions";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ProcessDefinitions";
+            this.Load += new System.EventHandler(this.ProcessDefinitions_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

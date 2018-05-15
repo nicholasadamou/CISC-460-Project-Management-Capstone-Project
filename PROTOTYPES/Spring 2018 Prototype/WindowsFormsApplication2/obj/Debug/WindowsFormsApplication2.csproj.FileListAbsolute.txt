@@ -43,3 +43,20 @@ C:\Users\Student\Desktop\Systems Project\Form Stuff\WindowsFormsApplication2\bin
 C:\Users\Student\Desktop\Systems Project\Form Stuff\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ArchivedContracts.resources
 C:\Users\Student\Desktop\Systems Project\Form Stuff\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ProcessDescriptions.resources
 C:\Users\Student\Desktop\Systems Project\Form Stuff\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ProcessDefinitions.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
+C:\Users\Student\Desktop\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
+C:\Users\Student\Desktop\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csprojResolveAssemblyReference.cache
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ArchivedContracts.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.AvailableContracts.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ContractEntry.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ContractInfo.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ForecastingReport.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ProcessDefinitions.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ProcessDescriptions.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Sign_in_form.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Selection.resources
+C:\Users\Student\Desktop\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csproj.GenerateResource.Cache

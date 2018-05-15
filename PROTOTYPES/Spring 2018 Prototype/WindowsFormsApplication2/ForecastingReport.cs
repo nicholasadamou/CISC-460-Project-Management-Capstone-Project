@@ -1,9 +1,7 @@
-﻿/*Nicholas Weidman, Jared Loucks, Farheen Fatima, Nicholas Adamou
- *5/9/18
+﻿/*Nicholas Weidman
+ *11/15/17
  *
  *A form that allows the user to submit and print forecasting reports for the company
- *
- * STILL IN PROGRESS
  * */
 using System;
 using System.Collections.Generic;

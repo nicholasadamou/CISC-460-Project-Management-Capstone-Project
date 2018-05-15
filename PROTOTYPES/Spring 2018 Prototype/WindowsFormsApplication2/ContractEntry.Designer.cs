@@ -42,8 +42,6 @@
             this.expected_completion_date = new System.Windows.Forms.DateTimePicker();
             this.contract_number_mskedtxtbx = new System.Windows.Forms.MaskedTextBox();
             this.location_grpbx = new System.Windows.Forms.GroupBox();
-            this.current_location_mskedtxtbx = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.start_location_mskedtxtbx = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +50,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exit_btn = new System.Windows.Forms.Button();
             this.submit_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.current_location_mskedtxtbx = new System.Windows.Forms.MaskedTextBox();
             this.contract_num_grpbx.SuspendLayout();
             this.location_grpbx.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -165,10 +165,12 @@
             // 
             this.entry_date.Enabled = false;
             this.entry_date.Location = new System.Drawing.Point(204, 117);
+            this.entry_date.MaxDate = new System.DateTime(2018, 4, 27, 0, 0, 0, 0);
+            this.entry_date.MinDate = new System.DateTime(2018, 4, 27, 0, 0, 0, 0);
             this.entry_date.Name = "entry_date";
             this.entry_date.Size = new System.Drawing.Size(200, 20);
             this.entry_date.TabIndex = 19;
-            this.entry_date.Value = new System.DateTime(2018, 5, 1, 10, 19, 39, 0);
+            this.entry_date.Value = new System.DateTime(2018, 4, 27, 0, 0, 0, 0);
             // 
             // due_date
             // 
@@ -208,24 +210,6 @@
             this.location_grpbx.Size = new System.Drawing.Size(365, 194);
             this.location_grpbx.TabIndex = 17;
             this.location_grpbx.TabStop = false;
-            // 
-            // current_location_mskedtxtbx
-            // 
-            this.current_location_mskedtxtbx.Location = new System.Drawing.Point(193, 51);
-            this.current_location_mskedtxtbx.Mask = "000";
-            this.current_location_mskedtxtbx.Name = "current_location_mskedtxtbx";
-            this.current_location_mskedtxtbx.Size = new System.Drawing.Size(26, 20);
-            this.current_location_mskedtxtbx.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Current Location";
             // 
             // start_location_mskedtxtbx
             // 
@@ -298,6 +282,24 @@
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
             this.submit_btn.Click += new System.EventHandler(this.submit_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Current Location";
+            // 
+            // current_location_mskedtxtbx
+            // 
+            this.current_location_mskedtxtbx.Location = new System.Drawing.Point(193, 51);
+            this.current_location_mskedtxtbx.Mask = "000";
+            this.current_location_mskedtxtbx.Name = "current_location_mskedtxtbx";
+            this.current_location_mskedtxtbx.Size = new System.Drawing.Size(26, 20);
+            this.current_location_mskedtxtbx.TabIndex = 15;
             // 
             // ContractEntry
             // 

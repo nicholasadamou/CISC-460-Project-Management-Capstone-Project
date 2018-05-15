@@ -1,8 +1,4 @@
-﻿/*Nicholas Weidman, Jared Loucks, Farheen Fatima, Nicholas Adamou
- * 5/9/18
- * Allow users to define new proccesses, update existing processes, or remove existing processes
- * */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +30,7 @@ namespace WindowsFormsApplication2
             conn = new SqlConnection(source);
         }
 
-        //Close this form and return the user to the Selection form
+        //CLOSE
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Selection newSelectionScreen = new Selection();
@@ -42,104 +38,82 @@ namespace WindowsFormsApplication2
             this.Close();
         }
 
-        //Submit the new process to the database
+        //SUBMIT
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             //Check Input Code vs. other codes
             //If there, update what is there
             //If not there, create new
 
-            //User must enter a process number and a description
-            if (code_mskedtxtbx.Text.Length != 3 || information_rchtxtbx.Text.Length == 0)
+            SqlCommand updatecmd = new SqlCommand();
+            updatecmd.Connection = conn;
+            updatecmd.CommandType = CommandType.StoredProcedure;
+            updatecmd.CommandText = "spUpdateProcess";
+
+            updatecmd.Parameters.AddWithValue("Processes", code_mskedtxtbx.Text).Direction = ParameterDirection.Input;
+            updatecmd.Parameters.AddWithValue("ProcessDescription", information_rchtxtbx.Text).Direction = ParameterDirection.Input;
+
+            updatecmd.Parameters.Add("@RowCount", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+
+            try
             {
-                MessageBox.Show("Please enter a process number and a description.");
+                conn.Open();
+                updatecmd.ExecuteNonQuery();
+                if (updatecmd.UpdatedRowSource.Equals(1))
+                {
+                    MessageBox.Show("Successful");
+                }
+                else
+                {
+                   createProcess(); //AAAAAAAAA HI
+                }
             }
-            else
+            catch (SqlException error)
             {
-                SqlCommand updatecmd = new SqlCommand();
-                updatecmd.Connection = conn;
-                updatecmd.CommandType = CommandType.StoredProcedure;
-                updatecmd.CommandText = "spUpdateProcess";
-
-                updatecmd.Parameters.AddWithValue("Processes", code_mskedtxtbx.Text).Direction = ParameterDirection.Input;
-                updatecmd.Parameters.AddWithValue("ProcessDescription", information_rchtxtbx.Text).Direction = ParameterDirection.Input;
-
-                updatecmd.Parameters.Add("@RowCount", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-
-                try
-                {
-                    conn.Open();
-                    updatecmd.ExecuteNonQuery();
-
-                    //Attempt to update an existing process
-                    if (updatecmd.UpdatedRowSource.Equals(1))
-                    {
-                        MessageBox.Show("Successful");
-                    }
-                    else
-                    {
-                        //If an existing process with the specified number is not found, create a new process
-                        createProcess(); //AAAAAAAAA HI
-                    }
-                }
-                catch (SqlException error)
-                {
-                    MessageBox.Show(error.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                    updatecmd.Parameters.Clear();
-                }
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                conn.Close();
+                updatecmd.Parameters.Clear();
             }
         }
 
-        //Delete an existing process
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            SqlCommand deletecmd = new SqlCommand();
+            deletecmd.Connection = conn;
+            deletecmd.CommandType = CommandType.StoredProcedure;
+            deletecmd.CommandText = "spDeleteProcess";
 
-            //User must enter a process number
-            if (code_mskedtxtbx.Text.Length != 3)
+            deletecmd.Parameters.AddWithValue("Processes", code_mskedtxtbx.Text).Direction = ParameterDirection.Input;
+
+            deletecmd.Parameters.Add("@RowCount", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+
+            try
             {
-                MessageBox.Show("Please enter a process number.");
+                conn.Open();
+                deletecmd.ExecuteNonQuery();
+                if (deletecmd.Parameters.Count > 0)
+                {
+                    MessageBox.Show("Process has been deleted");
+                }
+                else
+                {
+                    MessageBox.Show("Delete unsuccessful");
+                }
             }
-            else
+            catch (SqlException error)
             {
-                SqlCommand deletecmd = new SqlCommand();
-                deletecmd.Connection = conn;
-                deletecmd.CommandType = CommandType.StoredProcedure;
-                deletecmd.CommandText = "spDeleteProcess";
-
-                deletecmd.Parameters.AddWithValue("Processes", code_mskedtxtbx.Text).Direction = ParameterDirection.Input;
-
-                deletecmd.Parameters.Add("@RowCount", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-
-                try
-                {
-                    conn.Open();
-                    deletecmd.ExecuteNonQuery();
-                    if (deletecmd.UpdatedRowSource > 0)
-                    {
-                        MessageBox.Show("Process has been deleted");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delete unsuccessful");
-                    }
-                }
-                catch (SqlException error)
-                {
-                    MessageBox.Show(error.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                    deletecmd.Parameters.Clear();
-                }
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                conn.Close();
+                deletecmd.Parameters.Clear();
             }
         }
 
-        //Define a new process
         private void createProcess()
         {
             SqlCommand createcmd = new SqlCommand();
@@ -161,7 +135,7 @@ namespace WindowsFormsApplication2
                 }
                 else
                 {
-                    MessageBox.Show("Addition unsuccessful");
+                    MessageBox.Show("Unsuccessful add");
                 }
             }
             catch (SqlException error)
