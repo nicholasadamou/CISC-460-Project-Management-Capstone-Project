@@ -34,6 +34,8 @@
             this.availableContractsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contractEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forecastingReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processDefinitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.archivedContractsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.available_contracts_btn = new System.Windows.Forms.Button();
@@ -41,6 +43,8 @@
             this.reports_btn = new System.Windows.Forms.Button();
             this.processes_btn = new System.Windows.Forms.Button();
             this.btn_ProcessDefinitions = new System.Windows.Forms.Button();
+            this.btnArchivedContracts = new System.Windows.Forms.Button();
+            this.processDescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +77,9 @@
             this.availableContractsToolStripMenuItem,
             this.contractEntryToolStripMenuItem,
             this.forecastingReportsToolStripMenuItem,
+            this.processDefinitionToolStripMenuItem,
+            this.processDescriptionsToolStripMenuItem,
+            this.archivedContractsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -81,28 +88,42 @@
             // availableContractsToolStripMenuItem
             // 
             this.availableContractsToolStripMenuItem.Name = "availableContractsToolStripMenuItem";
-            this.availableContractsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.availableContractsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.availableContractsToolStripMenuItem.Text = "Available Contracts";
             this.availableContractsToolStripMenuItem.Click += new System.EventHandler(this.available_contracts_btn_Click);
             // 
             // contractEntryToolStripMenuItem
             // 
             this.contractEntryToolStripMenuItem.Name = "contractEntryToolStripMenuItem";
-            this.contractEntryToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.contractEntryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.contractEntryToolStripMenuItem.Text = "Contract Entry";
             this.contractEntryToolStripMenuItem.Click += new System.EventHandler(this.contract_entry_btn_Click);
             // 
             // forecastingReportsToolStripMenuItem
             // 
             this.forecastingReportsToolStripMenuItem.Name = "forecastingReportsToolStripMenuItem";
-            this.forecastingReportsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.forecastingReportsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.forecastingReportsToolStripMenuItem.Text = "Forecasting Reports";
             this.forecastingReportsToolStripMenuItem.Click += new System.EventHandler(this.reports_btn_Click);
+            // 
+            // processDefinitionToolStripMenuItem
+            // 
+            this.processDefinitionToolStripMenuItem.Name = "processDefinitionToolStripMenuItem";
+            this.processDefinitionToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.processDefinitionToolStripMenuItem.Text = "Process Definition";
+            this.processDefinitionToolStripMenuItem.Click += new System.EventHandler(this.btn_ProcessDefinitions_Click);
+            // 
+            // archivedContractsToolStripMenuItem
+            // 
+            this.archivedContractsToolStripMenuItem.Name = "archivedContractsToolStripMenuItem";
+            this.archivedContractsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.archivedContractsToolStripMenuItem.Text = "Archived Contracts";
+            this.archivedContractsToolStripMenuItem.Click += new System.EventHandler(this.btnArchivedContracts_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.exitToolStripMenuItem.Text = "Log Out";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -115,7 +136,7 @@
             // 
             // available_contracts_btn
             // 
-            this.available_contracts_btn.Location = new System.Drawing.Point(47, 98);
+            this.available_contracts_btn.Location = new System.Drawing.Point(47, 83);
             this.available_contracts_btn.Margin = new System.Windows.Forms.Padding(2);
             this.available_contracts_btn.Name = "available_contracts_btn";
             this.available_contracts_btn.Size = new System.Drawing.Size(119, 38);
@@ -126,29 +147,29 @@
             // 
             // contract_entry_btn
             // 
-            this.contract_entry_btn.Location = new System.Drawing.Point(47, 161);
+            this.contract_entry_btn.Location = new System.Drawing.Point(47, 146);
             this.contract_entry_btn.Margin = new System.Windows.Forms.Padding(2);
             this.contract_entry_btn.Name = "contract_entry_btn";
             this.contract_entry_btn.Size = new System.Drawing.Size(119, 38);
-            this.contract_entry_btn.TabIndex = 3;
+            this.contract_entry_btn.TabIndex = 4;
             this.contract_entry_btn.Text = "Contract Entry";
             this.contract_entry_btn.UseVisualStyleBackColor = true;
             this.contract_entry_btn.Click += new System.EventHandler(this.contract_entry_btn_Click);
             // 
             // reports_btn
             // 
-            this.reports_btn.Location = new System.Drawing.Point(203, 98);
+            this.reports_btn.Location = new System.Drawing.Point(203, 83);
             this.reports_btn.Margin = new System.Windows.Forms.Padding(2);
             this.reports_btn.Name = "reports_btn";
             this.reports_btn.Size = new System.Drawing.Size(119, 38);
-            this.reports_btn.TabIndex = 4;
+            this.reports_btn.TabIndex = 3;
             this.reports_btn.Text = "Forecasting Reports";
             this.reports_btn.UseVisualStyleBackColor = true;
             this.reports_btn.Click += new System.EventHandler(this.reports_btn_Click);
             // 
             // processes_btn
             // 
-            this.processes_btn.Location = new System.Drawing.Point(203, 161);
+            this.processes_btn.Location = new System.Drawing.Point(203, 146);
             this.processes_btn.Name = "processes_btn";
             this.processes_btn.Size = new System.Drawing.Size(119, 38);
             this.processes_btn.TabIndex = 5;
@@ -158,7 +179,7 @@
             // 
             // btn_ProcessDefinitions
             // 
-            this.btn_ProcessDefinitions.Location = new System.Drawing.Point(125, 213);
+            this.btn_ProcessDefinitions.Location = new System.Drawing.Point(47, 206);
             this.btn_ProcessDefinitions.Name = "btn_ProcessDefinitions";
             this.btn_ProcessDefinitions.Size = new System.Drawing.Size(119, 38);
             this.btn_ProcessDefinitions.TabIndex = 6;
@@ -166,12 +187,30 @@
             this.btn_ProcessDefinitions.UseVisualStyleBackColor = true;
             this.btn_ProcessDefinitions.Click += new System.EventHandler(this.btn_ProcessDefinitions_Click);
             // 
+            // btnArchivedContracts
+            // 
+            this.btnArchivedContracts.Location = new System.Drawing.Point(203, 206);
+            this.btnArchivedContracts.Name = "btnArchivedContracts";
+            this.btnArchivedContracts.Size = new System.Drawing.Size(119, 38);
+            this.btnArchivedContracts.TabIndex = 7;
+            this.btnArchivedContracts.Text = "Archived Contracts";
+            this.btnArchivedContracts.UseVisualStyleBackColor = true;
+            this.btnArchivedContracts.Click += new System.EventHandler(this.btnArchivedContracts_Click);
+            // 
+            // processDescriptionsToolStripMenuItem
+            // 
+            this.processDescriptionsToolStripMenuItem.Name = "processDescriptionsToolStripMenuItem";
+            this.processDescriptionsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.processDescriptionsToolStripMenuItem.Text = "Process Descriptions";
+            this.processDescriptionsToolStripMenuItem.Click += new System.EventHandler(this.processes_btn_Click);
+            // 
             // Selection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 265);
+            this.ClientSize = new System.Drawing.Size(376, 271);
             this.ControlBox = false;
+            this.Controls.Add(this.btnArchivedContracts);
             this.Controls.Add(this.btn_ProcessDefinitions);
             this.Controls.Add(this.processes_btn);
             this.Controls.Add(this.reports_btn);
@@ -207,5 +246,9 @@
         private System.Windows.Forms.Button reports_btn;
         private System.Windows.Forms.Button processes_btn;
         private System.Windows.Forms.Button btn_ProcessDefinitions;
+        private System.Windows.Forms.Button btnArchivedContracts;
+        private System.Windows.Forms.ToolStripMenuItem processDefinitionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem archivedContractsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processDescriptionsToolStripMenuItem;
     }
 }

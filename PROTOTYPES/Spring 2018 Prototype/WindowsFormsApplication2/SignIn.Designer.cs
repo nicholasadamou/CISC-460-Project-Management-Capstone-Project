@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.sign_in_label = new System.Windows.Forms.Label();
             this.username_label = new System.Windows.Forms.Label();
             this.username_textbx = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forgotPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exit_btn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -209,6 +211,7 @@
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forgotPasswordToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

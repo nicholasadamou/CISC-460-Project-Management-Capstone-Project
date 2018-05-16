@@ -1,5 +1,5 @@
 ﻿/*Nicholas Weidman, Jared Loucks, Nicholas Adamou, Farheen Fatima
- *Last updated 4/23/18
+ *5/9/18
  *
  *A contract entry form that allows the user to enter the details of a new contract
  *and submit it to the system.
@@ -65,6 +65,7 @@ namespace WindowsFormsApplication2
             createcmd.Parameters.AddWithValue("CurrentLocation", current_location_mskedtxtbx.Text).Direction = ParameterDirection.Input;
             createcmd.Parameters.AddWithValue("StartLocation", start_location_mskedtxtbx.Text).Direction = ParameterDirection.Input;
             createcmd.Parameters.AddWithValue("NecessaryProcesses", necessary_richtxtbx.Text).Direction = ParameterDirection.Input;
+            createcmd.Parameters.AddWithValue("Selected", 0).Direction = ParameterDirection.Input;
 
             createcmd.Parameters.Add("@Error", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
 

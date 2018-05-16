@@ -1,12 +1,12 @@
 ﻿/*Nicholas Weidman, Nicholas Adamou, Jared Loucks, Farheen Fatima
- * Last Updated 4/18/18
+ * 5/9/18
  * 
  * Sign in form that allows users to attempt logging into the system.
  * 
  * If a user enters incorrect credentials into the system ten times in a row,
  * they are required to wait ten minutes before trying again.
  * 
- * If the user successfully logs in, a string representing access level is passed to the next form for authentication
+ * If the user successfully logs in, a string representing access level is made available to the system
  * */
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
+    //Verification string used to control available functions
     struct Verification
     {
         public static String verification;
@@ -80,6 +81,9 @@ namespace WindowsFormsApplication2
                             Verification.verification = verification;
                             Selection selectionForm = new Selection();
                             selectionForm.Show();
+                            username_textbx.Clear();
+                            password_textbx.Clear();
+                            username_textbx.Focus();
                             this.Hide();
                         }
                         else

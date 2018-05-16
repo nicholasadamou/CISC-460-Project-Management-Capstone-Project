@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*Nicholas Weidman, Jared Loucks, Farheen Fatima, Nicholas Adamou
+ *5/9/18
+ *Display each of the defined processes and their descriptions
+ * */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +17,12 @@ namespace WindowsFormsApplication2
 {
     public partial class ProcessDefinitions : Form
     {
-
         private SqlConnection conn;
         private SqlCommand cmd = new SqlCommand();
         private string source; //Database source to query
         private string dbPath = "C:\\Users\\Student\\Documents\\Systems Project.mdf"; //Path to the database
 
+        //Load all of the processes and descriptions on to the form
         public ProcessDefinitions()
         {
             InitializeComponent();
@@ -60,17 +64,12 @@ namespace WindowsFormsApplication2
             }
         }
 
-        //EXIT
+        //Close this form and return the user to the Selection form
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             Selection newSelectionScreen = new Selection();
             newSelectionScreen.Show();
             this.Close();
-        }
-
-        private void ProcessDefinitions_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

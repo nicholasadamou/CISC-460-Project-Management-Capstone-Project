@@ -1,5 +1,5 @@
-﻿/*Nicholas Weidman
- *4/18/18
+﻿/*Nicholas Weidman, Jared Loucks, Farheen Fatima, Nicholas Adamou
+ *5/9/18
  * 
  * Allows the user to select a form to view and use
  * Closing this form will return the user to the sign in screen
@@ -30,6 +30,14 @@ namespace WindowsFormsApplication2
             if (Verification.verification.Equals("Hourly"))
             {
                 reports_btn.Enabled = false;
+                forecastingReportsToolStripMenuItem.Enabled = false;
+                contractEntryToolStripMenuItem.Enabled = false;
+                processDescriptionsToolStripMenuItem.Enabled = false;
+                archivedContractsToolStripMenuItem.Enabled = false;
+                btnArchivedContracts.Enabled = false;
+                contract_entry_btn.Enabled = false;
+                reports_btn.Enabled = false;
+                processes_btn.Enabled = false;
             }
         }
 
@@ -79,10 +87,19 @@ namespace WindowsFormsApplication2
             MessageBox.Show("Please select what form you would like to view.  Exiting this screen will return you to the sign in screen.");
         }
 
+        //Load the Process Definitions form
         private void btn_ProcessDefinitions_Click(object sender, EventArgs e)
         {
             ProcessDefinitions newProcessDefinitionsForm = new ProcessDefinitions();
             newProcessDefinitionsForm.Show();
+            this.Close();
+        }
+
+        //Load Archived Contracts form and close this form
+        private void btnArchivedContracts_Click(object sender, EventArgs e)
+        {
+            ArchivedContracts newArchivedContractsForm = new ArchivedContracts();
+            newArchivedContractsForm.Show();
             this.Close();
         }
     }

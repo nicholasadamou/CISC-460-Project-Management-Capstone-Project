@@ -38,6 +38,8 @@
             this.contract_num_label = new System.Windows.Forms.Label();
             this.select_btn = new System.Windows.Forms.Button();
             this.selection_mskedtxtbx = new System.Windows.Forms.MaskedTextBox();
+            this.delinquent_chkbx = new System.Windows.Forms.CheckBox();
+            this.btn_UpdateArchive = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +47,7 @@
             // 
             this.available_contracts_label.AutoSize = true;
             this.available_contracts_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.available_contracts_label.Location = new System.Drawing.Point(87, 39);
+            this.available_contracts_label.Location = new System.Drawing.Point(75, 36);
             this.available_contracts_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.available_contracts_label.Name = "available_contracts_label";
             this.available_contracts_label.Size = new System.Drawing.Size(272, 36);
@@ -64,7 +66,7 @@
             // 
             // exit_btn
             // 
-            this.exit_btn.Location = new System.Drawing.Point(232, 578);
+            this.exit_btn.Location = new System.Drawing.Point(222, 578);
             this.exit_btn.Margin = new System.Windows.Forms.Padding(2);
             this.exit_btn.Name = "exit_btn";
             this.exit_btn.Size = new System.Drawing.Size(57, 28);
@@ -120,7 +122,7 @@
             // 
             // select_btn
             // 
-            this.select_btn.Location = new System.Drawing.Point(146, 578);
+            this.select_btn.Location = new System.Drawing.Point(136, 578);
             this.select_btn.Margin = new System.Windows.Forms.Padding(2);
             this.select_btn.Name = "select_btn";
             this.select_btn.Size = new System.Drawing.Size(57, 28);
@@ -131,12 +133,33 @@
             // 
             // selection_mskedtxtbx
             // 
-            this.selection_mskedtxtbx.Location = new System.Drawing.Point(146, 508);
+            this.selection_mskedtxtbx.Location = new System.Drawing.Point(153, 508);
             this.selection_mskedtxtbx.Margin = new System.Windows.Forms.Padding(2);
             this.selection_mskedtxtbx.Mask = "000000000";
             this.selection_mskedtxtbx.Name = "selection_mskedtxtbx";
-            this.selection_mskedtxtbx.Size = new System.Drawing.Size(76, 20);
+            this.selection_mskedtxtbx.Size = new System.Drawing.Size(64, 20);
             this.selection_mskedtxtbx.TabIndex = 7;
+            // 
+            // delinquent_chkbx
+            // 
+            this.delinquent_chkbx.AutoSize = true;
+            this.delinquent_chkbx.Location = new System.Drawing.Point(282, 511);
+            this.delinquent_chkbx.Name = "delinquent_chkbx";
+            this.delinquent_chkbx.Size = new System.Drawing.Size(77, 17);
+            this.delinquent_chkbx.TabIndex = 8;
+            this.delinquent_chkbx.Text = "Delinquent";
+            this.delinquent_chkbx.UseVisualStyleBackColor = true;
+            this.delinquent_chkbx.CheckedChanged += new System.EventHandler(this.delinquent_chkbx_CheckedChanged);
+            // 
+            // btn_UpdateArchive
+            // 
+            this.btn_UpdateArchive.Location = new System.Drawing.Point(13, 583);
+            this.btn_UpdateArchive.Name = "btn_UpdateArchive";
+            this.btn_UpdateArchive.Size = new System.Drawing.Size(75, 42);
+            this.btn_UpdateArchive.TabIndex = 9;
+            this.btn_UpdateArchive.Text = "Update Archive";
+            this.btn_UpdateArchive.UseVisualStyleBackColor = true;
+            this.btn_UpdateArchive.Click += new System.EventHandler(this.btn_UpdateArchive_Click);
             // 
             // AvailableContracts
             // 
@@ -145,6 +168,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 637);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_UpdateArchive);
+            this.Controls.Add(this.delinquent_chkbx);
             this.Controls.Add(this.selection_mskedtxtbx);
             this.Controls.Add(this.select_btn);
             this.Controls.Add(this.contract_num_label);
@@ -178,5 +203,7 @@
         private System.Windows.Forms.Label contract_num_label;
         private System.Windows.Forms.Button select_btn;
         private System.Windows.Forms.MaskedTextBox selection_mskedtxtbx;
+        private System.Windows.Forms.CheckBox delinquent_chkbx;
+        private System.Windows.Forms.Button btn_UpdateArchive;
     }
 }
